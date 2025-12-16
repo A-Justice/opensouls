@@ -332,6 +332,11 @@ export class SoulServer {
   }
 
   async listen() {
+    // Health check endpoint for Docker/Kubernetes
+    this.apiServer.api.get("/health", (ctx) => {
+      return ctx.json({ status: "ok", timestamp: new Date().toISOString() })
+    });
+
     this.apiServer.api.get("/internal", (ctx) => {
       return this.apiServer.ws(ctx, { organizationSlug: "internal" }, (websocket) => {
         this.hocuspocusServer.handleConnection(websocket, ctx.req as any, { organizationSlug: "internal" });

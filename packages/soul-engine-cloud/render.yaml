@@ -1,0 +1,24 @@
+# Render Blueprint for soul-engine-cloud
+# Deploy at: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: soul-engine-cloud
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: ../..
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: DEBUG_SERVER_PORT
+        value: 4000
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: soul-data
+      mountPath: /app/data
+      sizeGB: 1
+

@@ -1,0 +1,58 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+.next
+**/.next
+dist
+**/dist
+.turbo
+**/.turbo
+
+# Local data
+data
+**/data
+*.pglite
+
+# Git
+.git
+.gitignore
+.gitattributes
+.gitmodules
+
+# IDE
+.cursor
+.vscode
+*.code-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files (will be provided at runtime)
+.env
+.env.*
+!.env.example
+
+# Test files
+coverage
+**/*.spec.ts
+**/*.test.ts
+**/tests
+
+# Documentation (separate build)
+*.md
+!README.md
+!DEPLOYMENT.md
+
+# Misc
+*.lock
+!bun.lock
+legacy
+npm-packages
+
